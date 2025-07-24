@@ -64,16 +64,16 @@
     </select>
 
     <p id="priceDisplay">Total: $5.00</p>
-    <button class="pay-button" disabled>Coming Soon</button>
+    <button class="pay-button" onclick="redirectToStripe()">Preorder Now</button>
   </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <form>
-      <input type="email" name="email" placeholder="Your email" required />
-      <textarea name="message" placeholder="Message" rows="4" required></textarea>
-      <button type="submit">Send</button>
-    </form>
+    <form action="https://formspree.io/f/manbekdy" method="POST">
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="Message" rows="4" required></textarea>
+        <button type="submit">Send</button>
+      </form>
   </section>
 
   <footer>
@@ -85,6 +85,58 @@
     </p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const prices = {
+      1: 5,
+      2: 9.5,
+      3: 13.5,
+      4: 17.6,
+      5: 21.5,
+      6: 25.2,
+      7: 28.7,
+      8: 32,
+      9: 35.1,
+      10: 38,
+      11: 40.7,
+      12: 42
+    };
+
+    const links = {
+      1: "https://buy.stripe.com/test_dRmaEWeztaPLdtG4xr3VC00",
+      2: "https://buy.stripe.com/test_aFaeVc4YT3nj9dqfc53VC02",
+      3: "https://buy.stripe.com/test_3cI6oG0ID2jfahu3tn3VC03",
+      4: "https://buy.stripe.com/test_6oU5kC1MH9LH61e3tn3VC04",
+      5: "https://buy.stripe.com/test_eVq6oG0ID9LH61e6Fz3VC05",
+      6: "https://buy.stripe.com/test_dRmaEW2QLaPL61ebZT3VC06",
+      7: "https://buy.stripe.com/test_dRm9AS1MHbTPbly1lf3VC07",
+      8: "https://buy.stripe.com/test_3cIfZg3UPcXT61e3tn3VC08",
+      9: "https://buy.stripe.com/test_9B628q8b50b72P2gg93VC09",
+      10: "https://buy.stripe.com/test_8x29ASgHBaPLdtGbZT3VC0a",
+      11: "https://buy.stripe.com/test_6oUcN4bnhaPLgFSd3X3VC0b",
+      12: "https://buy.stripe.com/test_9B6aEWajd8HD89m1lf3VC0c"
+    };
+
+    const priceDisplay = document.getElementById("priceDisplay");
+    const monthsSelect = document.getElementById("months");
+
+    monthsSelect.addEventListener("change", () => {
+      const months = parseInt(monthsSelect.value);
+      const price = prices[months];
+      priceDisplay.textContent = `Total: $${price.toFixed(2)}`;
+    });
+
+    function redirectToStripe() {
+      const months = parseInt(document.getElementById("months").value);
+      if (links[months]) {
+        window.location.href = links[months];
+      } else {
+        alert("Payment link not available.");
+      }
+    }
+
+    document.getElementById("preorderBtn").addEventListener("click", () => {
+      document.getElementById("preorder").scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
