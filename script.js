@@ -1,17 +1,16 @@
-// Handle Get Started button
-document.getElementById("getStartedBtn").addEventListener("click", () => {
-    alert("Coming Soon! Stay tuned for CRDO’s official launch.");
+// Scroll from preorder button to contact form
+document.getElementById("preorderBtn").addEventListener("click", () => {
+    const contactSection = document.getElementById("contact");
+    contactSection.scrollIntoView({ behavior: "smooth" });
   });
   
-  // Handle CTA button
+  // Scroll from CTA to contact form
   document.getElementById("ctaBtn").addEventListener("click", () => {
-    window.scrollTo({
-      top: document.getElementById("contact").offsetTop,
-      behavior: "smooth"
-    });
+    const contactSection = document.getElementById("contact");
+    contactSection.scrollIntoView({ behavior: "smooth" });
   });
   
-  // Handle contact form submission (for now, just alert)
+  // Handle contact form submission (demo only)
   document.querySelector("form").addEventListener("submit", function (e) {
     e.preventDefault();
     alert("Thanks! We'll get back to you soon.");
