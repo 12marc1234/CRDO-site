@@ -639,10 +639,19 @@ ul li, ol li, blockquote, header p, #priceDisplay {
   max-width: 200px;
 }
 
+.faq-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto 1.2rem auto;
+  width: 100%;
+}
 .faq-question {
   display: block;
   width: 100%;
-  text-align: left;
+  text-align: center;
   background: none;
   border: none;
   font-size: 1.15rem;
@@ -652,9 +661,7 @@ ul li, ol li, blockquote, header p, #priceDisplay {
   cursor: pointer;
   outline: none;
   transition: color 0.2s;
-}
-.faq-question:hover {
-  color: #ffb300;
+  margin: 0 auto;
 }
 .faq-answer {
   display: none;
@@ -663,6 +670,8 @@ ul li, ol li, blockquote, header p, #priceDisplay {
   font-size: 1.05rem;
   line-height: 1.6;
   transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1);
+  text-align: center;
+  margin: 0 auto;
 }
 .faq-item.active .faq-answer {
   display: block;
