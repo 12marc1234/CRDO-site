@@ -8,73 +8,80 @@
 </head>
 <body>
   <nav>
-    <a href="#about">About</a>
-    <a href="#features">Features</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#preorder">Pre-order</a>
-    <a href="#contact">Contact</a>
+    <div class="nav-container">
+      <span class="logo-nav">CRDO</span>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#preorder">Pre-order</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
   </nav>
 
   <header>
     <h1>CRDO</h1>
     <p>Discipline built differently. Welcome to CRDO.</p>
-    <button id="preorderBtn">Pre-order Now</button>
+    <button id="preorderBtn" class="primary-button">Pre-order Now</button>
   </header>
 
-  <section id="about">
-    <h2>About CRDO</h2>
-    <p>
-      CRDO is a gamified running experience where your daily runs build a personalized digital city. Stay motivated through streaks, city upgrades, and social exploration.
-    </p>
-  </section>
+  <main>
+    <section id="about" class="card">
+      <h2>About CRDO</h2>
+      <p>
+        CRDO is a gamified running experience where your daily runs build a personalized digital city. Stay motivated through streaks, city upgrades, and social exploration.
+      </p>
+    </section>
 
-  <section id="features">
-    <h2>Features</h2>
-    <ul>
-      <li>🏃‍♂️ Daily running fuels your virtual city growth</li>
-      <li>🔥 Motivation through streaks & milestones</li>
-      <li>🌍 Explore and admire friends’ cities</li>
-    </ul>
-  </section>
+    <section id="features" class="card">
+      <h2>Features</h2>
+      <ul>
+        <li>🏃‍♂️ Daily running fuels your virtual city growth</li>
+        <li>🔥 Motivation through streaks & milestones</li>
+        <li>🌍 Explore and admire friends’ cities</li>
+      </ul>
+    </section>
 
-  <section id="testimonials">
-    <h2>What Runners Say</h2>
-    <blockquote>“CRDO makes fitness fun again!” – Taylor</blockquote>
-    <blockquote>“I never miss a run now. Addicted to leveling up!” – Jordan</blockquote>
-  </section>
+    <section id="testimonials" class="card">
+      <h2>What Runners Say</h2>
+      <blockquote>“CRDO makes fitness fun again!” – Taylor</blockquote>
+      <blockquote>“I never miss a run now. Addicted to leveling up!” – Jordan</blockquote>
+    </section>
 
-  <section id="preorder">
-    <h2>Pre-order CRDO Access</h2>
-    <p>Choose how many months you want to pre-order. You can select 1 to 12 months.</p>
+    <section id="preorder" class="card">
+      <h2>Pre-order CRDO Access</h2>
+      <p>Choose how many months you want to pre-order. You can select 1 to 12 months.</p>
 
-    <label for="months">Months:</label>
-    <select id="months">
-      <option value="1">1 Month</option>
-      <option value="2">2 Months</option>
-      <option value="3">3 Months</option>
-      <option value="4">4 Months</option>
-      <option value="5">5 Months</option>
-      <option value="6">6 Months</option>
-      <option value="7">7 Months</option>
-      <option value="8">8 Months</option>
-      <option value="9">9 Months</option>
-      <option value="10">10 Months</option>
-      <option value="11">11 Months</option>
-      <option value="12">12 Months</option>
-    </select>
+      <label for="months">Months:</label>
+      <select id="months">
+        <option value="1">1 Month</option>
+        <option value="2">2 Months</option>
+        <option value="3">3 Months</option>
+        <option value="4">4 Months</option>
+        <option value="5">5 Months</option>
+        <option value="6">6 Months</option>
+        <option value="7">7 Months</option>
+        <option value="8">8 Months</option>
+        <option value="9">9 Months</option>
+        <option value="10">10 Months</option>
+        <option value="11">11 Months</option>
+        <option value="12">12 Months</option>
+      </select>
 
-    <p id="priceDisplay">Total: $5.00</p>
-    <button class="pay-button" onclick="redirectToStripe()">Pre-order Now</button>
-  </section>
+      <p id="priceDisplay">Total: $5.00</p>
+      <button class="primary-button" onclick="redirectToStripe()">Pre-order Now</button>
+    </section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <form action="https://formspree.io/f/manbekdy" method="POST">
-      <input type="email" name="email" placeholder="Your email" required />
-      <textarea name="message" placeholder="Message" rows="4" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
+    <section id="contact" class="card">
+      <h2>Contact Us</h2>
+      <form action="https://formspree.io/f/manbekdy" method="POST">
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="Message" rows="4" required></textarea>
+        <button type="submit" class="primary-button">Send</button>
+      </form>
+    </section>
+  </main>
 
   <footer>
     <p>© 2025 CRDO. All rights reserved.</p>
@@ -85,58 +92,6 @@
     </p>
   </footer>
 
-  <script>
-    const prices = {
-      1: 5,
-      2: 9.5,
-      3: 13.5,
-      4: 17.6,
-      5: 21.5,
-      6: 25.2,
-      7: 28.7,
-      8: 32,
-      9: 35.1,
-      10: 38,
-      11: 40.7,
-      12: 42
-    };
-
-    const links = {
-      1: "https://buy.stripe.com/test_dRmaEWeztaPLdtG4xr3VC00",
-      2: "https://buy.stripe.com/test_aFaeVc4YT3nj9dqfc53VC02",
-      3: "https://buy.stripe.com/test_3cI6oG0ID2jfahu3tn3VC03",
-      4: "https://buy.stripe.com/test_6oU5kC1MH9LH61e3tn3VC04",
-      5: "https://buy.stripe.com/test_eVq6oG0ID9LH61e6Fz3VC05",
-      6: "https://buy.stripe.com/test_dRmaEW2QLaPL61ebZT3VC06",
-      7: "https://buy.stripe.com/test_dRm9AS1MHbTPbly1lf3VC07",
-      8: "https://buy.stripe.com/test_3cIfZg3UPcXT61e3tn3VC08",
-      9: "https://buy.stripe.com/test_9B628q8b50b72P2gg93VC09",
-      10: "https://buy.stripe.com/test_8x29ASgHBaPLdtGbZT3VC0a",
-      11: "https://buy.stripe.com/test_6oUcN4bnhaPLgFSd3X3VC0b",
-      12: "https://buy.stripe.com/test_9B6aEWajd8HD89m1lf3VC0c"
-    };
-
-    const priceDisplay = document.getElementById("priceDisplay");
-    const monthsSelect = document.getElementById("months");
-
-    monthsSelect.addEventListener("change", () => {
-      const months = parseInt(monthsSelect.value);
-      const price = prices[months];
-      priceDisplay.textContent = `Total: $${price.toFixed(2)}`;
-    });
-
-    function redirectToStripe() {
-      const months = parseInt(document.getElementById("months").value);
-      if (links[months]) {
-        window.location.href = links[months];
-      } else {
-        alert("Payment link not available.");
-      }
-    }
-
-    document.getElementById("preorderBtn").addEventListener("click", () => {
-      document.getElementById("preorder").scrollIntoView({ behavior: "smooth" });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
