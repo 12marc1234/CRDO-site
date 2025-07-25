@@ -1,35 +1,38 @@
+/* Global */
 html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  background: #fdfdfd;
-  color: #222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0b0b0b;
+  color: #eee;
   line-height: 1.6;
 }
 
+/* Navigation */
 nav {
-  background: #0d0d0d;
-  color: white;
-  padding: 1rem;
+  background: #111;
+  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .nav-container {
-  max-width: 1100px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 1.5rem;
 }
 
 .logo-nav {
-  font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffc107;
 }
 
 .nav-links {
@@ -40,47 +43,53 @@ nav {
 nav a {
   color: white;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 nav a:hover {
   color: #f39c12;
 }
 
+/* Header */
 header {
-  background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
-  color: white;
   text-align: center;
-  padding: 6rem 1rem;
+  padding: 5rem 1rem;
+  background: #0b0b0b;
 }
 
-header h1 {
+.logo-gradient {
   font-size: 4rem;
-  margin: 0.5rem 0;
-  letter-spacing: 1px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #FF9F0A, #FFD60A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0.2rem 0 1.5rem 0;
 }
 
 header p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: 2rem;
+  color: #ccc;
 }
 
 .primary-button {
-  background: #f39c12;
+  background: linear-gradient(to right, #FF9F0A, #FFD60A);
   border: none;
-  padding: 0.85rem 2rem;
+  padding: 0.9rem 2rem;
   font-size: 1rem;
-  color: white;
+  color: #000;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: 0.3s ease;
 }
 
 .primary-button:hover {
-  background: #ff9e1b;
+  opacity: 0.9;
 }
 
+/* Main layout */
 main {
   max-width: 900px;
   margin: auto;
@@ -88,16 +97,18 @@ main {
 }
 
 .card {
-  background: #fff;
+  background: #1a1a1a;
   border-radius: 12px;
   padding: 2.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.03);
 }
 
+/* Typography */
 section h2 {
   text-align: center;
   margin-bottom: 1.5rem;
+  color: #f9f9f9;
 }
 
 ul {
@@ -114,9 +125,10 @@ blockquote {
   font-style: italic;
   text-align: center;
   margin: 1.5rem 0;
-  color: #555;
+  color: #bbb;
 }
 
+/* Preorder Section */
 #preorder select,
 #preorder button {
   display: block;
@@ -129,8 +141,10 @@ blockquote {
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
+  color: #FFD60A;
 }
 
+/* Forms */
 form {
   display: flex;
   flex-direction: column;
@@ -141,13 +155,16 @@ input,
 textarea {
   padding: 0.75rem;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #555;
   border-radius: 8px;
   font-family: inherit;
+  background: #111;
+  color: #eee;
 }
 
+/* Footer */
 footer {
-  background: #0d0d0d;
+  background: #111;
   color: white;
   text-align: center;
   padding: 2rem 1rem;
@@ -155,7 +172,19 @@ footer {
 }
 
 footer a {
-  color: #f39c12;
+  color: #FFD60A;
   text-decoration: none;
   margin: 0 0.5rem;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
