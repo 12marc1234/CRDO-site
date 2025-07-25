@@ -25,7 +25,19 @@ const priceDisplay = document.getElementById("priceDisplay");
 monthSelect.addEventListener("change", function () {
   const months = parseInt(this.value);
   const price = pricing[months];
-  priceDisplay.textContent = `Total: $${price.toFixed(2)}`;
+  const prev = parseFloat(priceDisplay.textContent.replace(/[^0-9.]/g, "")) || 0;
+  let start = prev, end = price, duration = 300;
+  let startTime = null;
+
+  function animatePrice(time) {
+    if (!startTime) startTime = time;
+    const progress = Math.min((time - startTime) / duration, 1);
+    const current = start + (end - start) * progress;
+    priceDisplay.textContent = `Total: $${current.toFixed(2)}`;
+    if (progress < 1) requestAnimationFrame(animatePrice);
+}
+requestAnimationFrame(animatePrice);
+
 });
 
 // Smooth scroll for nav links
