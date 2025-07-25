@@ -104,18 +104,18 @@ window.addEventListener("click", e => {
 
 // Stripe payment redirect
 const priceLinks = {
-  1: "https://buy.stripe.com/7sI7t0ekM3dEcD6dR2", 
-  2: "https://buy.stripe.com/14kcOhekw5bM9hS28e", 
-  3: "https://buy.stripe.com/14k6ohekw7rAdhS14b", 
-  4: "https://buy.stripe.com/28obI3g6k6lS4Ji5km", 
-  5: "https://buy.stripe.com/00gcOhekw3dE3mAeUV", 
-  6: "https://buy.stripe.com/00g8zJg6kbLY7kA9AE", 
-  7: "https://buy.stripe.com/eVa7t0ekMbLY2RG3cd", 
-  8: "https://buy.stripe.com/dR65nZ4vY5bM3mAeV8", 
-  9: "https://buy.stripe.com/eVa16D7cEcWQcD6cMO", 
-  10: "https://buy.stripe.com/28odT08owd1IdhS3ce", 
-  11: "https://buy.stripe.com/00gbI3g6k1KO7kAbMP", 
-  12: "https://buy.stripe.com/4gw6ohekM1KOfxC4gk"
+  1: "https://buy.stripe.com/test_dRmaEWeztaPLdtG4xr3VC00", 
+  2: "https://buy.stripe.com/test_aFaeVc4YT3nj9dqfc53VC02", 
+  3: "https://buy.stripe.com/test_3cI6oG0ID2jfahu3tn3VC03", 
+  4: "https://buy.stripe.com/test_6oU5kC1MH9LH61e3tn3VC04", 
+  5: "https://buy.stripe.com/test_eVq6oG0ID9LH61e6Fz3VC05", 
+  6: "https://buy.stripe.com/test_dRmaEW2QLaPL61ebZT3VC06", 
+  7: "https://buy.stripe.com/test_dRm9AS1MHbTPbly1lf3VC07", 
+  8: "https://buy.stripe.com/test_3cIfZg3UPcXT61e3tn3VC08", 
+  9: "https://buy.stripe.com/test_9B628q8b50b72P2gg93VC09", 
+  10: "https://buy.stripe.com/test_8x29ASgHBaPLdtGbZT3VC0a", 
+  11: "https://buy.stripe.com/test_6oUcN4bnhaPLgFSd3X3VC0b", 
+  12: "https://buy.stripe.com/test_9B6aEWajd8HD89m1lf3VC0c"
 };
 
 function redirectToStripe() {
