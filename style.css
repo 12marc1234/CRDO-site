@@ -37,7 +37,7 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 nav a {
@@ -163,7 +163,6 @@ blockquote {
   outline: none;
 }
 
-
 #priceDisplay {
   text-align: center;
   font-weight: bold;
@@ -271,4 +270,20 @@ footer a {
 /* Active nav link */
 nav a.active {
   border-bottom: 2px solid #FFD60A;
+}
+
+/* How It Works bullets */
+ol {
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+ol li {
+  position: relative;
+  padding-left: 0.5rem;
+  margin-bottom: 0.5rem;
 }
