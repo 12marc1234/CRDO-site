@@ -538,6 +538,43 @@ ul li, ol li, blockquote, header p, #priceDisplay {
   #contact.card .primary-button {
     max-width: 100%;
   }
+  .header-flex {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    max-width: 100vw;
+    margin-left: 0;
+    padding: 0.7rem 0.2rem;
+  }
+  .header-left {
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    max-width: 100vw;
+    margin: 0;
+  }
+  .header-left .logo-gradient,
+  .header-desc {
+    text-align: center;
+    width: 100%;
+    white-space: normal;
+  }
+  .header-app-img {
+    display: block;
+    width: 100vw;
+    max-width: 350px;
+    height: auto;
+    margin: 1.2rem 0 0 0;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  }
+  .primary-button {
+    width: 100%;
+    max-width: 350px;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .logo-bg-container {
