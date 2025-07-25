@@ -70,3 +70,28 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.6 });
 
 sections.forEach(section => sectionObserver.observe(section));
+
+// Privacy Policy Modal
+const modal = document.getElementById("privacyModal");
+const privacyLink = document.getElementById("privacyLink");
+privacyLink.addEventListener("click", e => {
+  e.preventDefault();
+  modal.style.display = "block";
+});
+
+const closeBtn = document.querySelector(".modal .close");
+
+privacyLink.addEventListener("click", e => {
+  e.preventDefault();
+  modal.style.display = "block";
+});
+
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", e => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
