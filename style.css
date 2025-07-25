@@ -141,6 +141,29 @@ blockquote {
   font-size: 1rem;
 }
 
+#months {
+  appearance: none;
+  background: #111;
+  color: #FFD60A;
+  font-weight: bold;
+  border: 1px solid #FFD60A;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  width: 200px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#months:hover,
+#months:focus {
+  border-color: #ffca2c;
+  background-color: #1f1f1f;
+  outline: none;
+}
+
+
 #priceDisplay {
   text-align: center;
   font-weight: bold;
