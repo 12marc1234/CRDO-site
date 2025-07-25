@@ -23,9 +23,16 @@
   </nav>
 
   <header>
-    <h1 class="logo-gradient">CRDO</h1>
-    <p>Discipline built differently. Welcome to CRDO.</p>
-    <button id="preorderBtn" class="primary-button">Pre-order Now</button>
+    <div class="header-flex">
+      <div class="header-left">
+        <h1 class="logo-gradient">CRDO</h1>
+        <p class="header-desc">Discipline built differently. Welcome to CRDO.</p>
+        <button id="preorderBtn" class="primary-button">Pre-order Now</button>
+      </div>
+      <div class="header-right">
+        <img src="demo.jpg" alt="CRDO App Demo" class="header-app-img" />
+      </div>
+    </div>
   </header>
 
   <main>
@@ -47,12 +54,12 @@
 
     <section id="how-it-works" class="card fade-in">
       <h2>How It Works</h2>
-      <ol>
+      <ul>
         <li><strong>Run Daily</strong> — Each run adds resources to your city.</li>
         <li><strong>Earn Streaks</strong> — Keep your streak alive to unlock rare upgrades.</li>
         <li><strong>Build Your City</strong> — Spend your energy on buildings, landmarks, or cosmetics.</li>
         <li><strong>Explore Others</strong> — Visit friends’ cities and challenge them in run goals.</li>
-      </ol>
+      </ul>
     </section>
 
     <section id="testimonials" class="card fade-in">
@@ -125,15 +132,22 @@
   
   <!-- Privacy Modal -->
   <div id="privacyModal" class="modal">
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#features">Features</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#preorder">Pre-order</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
-    </div>       
+    <div class="modal-content">
+      <span class="close" id="closePrivacyModal">&times;</span>
+      <h2>Privacy Policy</h2>
+      <p>
+        <strong>Commercial Use Only:</strong> This website and its services are intended for commercial use by individual customers. You may not resell, redistribute, or repackage any part of this service or its content without explicit written permission from CRDO.
+      </p>
+      <p>
+        <strong>Privacy:</strong> We respect your privacy. Any information you provide (such as your email for pre-orders or contact) will only be used for the purpose of providing you with CRDO services and updates. We do not sell or share your personal information with third parties except as required by law.
+      </p>
+      <p>
+        <strong>Data:</strong> By using this site, you agree that your data may be processed and stored for the purpose of fulfilling your order and improving our services. You may contact us at any time to request deletion of your data.
+      </p>
+      <p>
+        <strong>Updates:</strong> This policy may be updated from time to time. Please check back for changes.
+      </p>
+    </div>
   </div>
 
   <script src="script.js"></script>

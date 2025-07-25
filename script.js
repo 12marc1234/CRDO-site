@@ -127,3 +127,5 @@ function redirectToStripe() {
   }
   window.location.href = url;
 }
+
+// (Custom scroll inertia removed; using native browser scrolling)
