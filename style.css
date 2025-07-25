@@ -11,10 +11,10 @@ body {
   line-height: 1.6;
 }
 
-/* Navigation */
+/* --- NAVIGATION --- */
 nav {
   background: #111;
-  padding: 1rem 0;
+  padding: 2rem 0 2rem 0; /* Increased vertical padding */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -24,9 +24,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1000px;
+  max-width: 1100px; /* Slightly wider */
   margin: auto;
-  padding: 0 1.5rem;
+  padding: 0 2.5rem; /* More horizontal padding */
 }
 
 .logo-nav {
@@ -37,7 +37,7 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 3rem; /* More space between nav links */
 }
 
 nav a {
@@ -54,37 +54,37 @@ nav a.active {
   border-bottom: 2px solid #FFD60A;
 }
 
-/* Header */
+/* --- HEADER --- */
 header {
   text-align: center;
-  padding: 5rem 1rem;
+  padding: 7rem 1rem 6rem 1rem; /* More vertical padding */
   background: #0b0b0b;
 }
 
 .logo-gradient {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 900;
   letter-spacing: 2px;
   background: linear-gradient(90deg, #FF9F0A, #FFD60A);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin: 0.2rem 0 1.5rem 0;
+  margin: 0.2rem 0 2.5rem 0; /* More bottom margin */
 }
 
 header p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
   color: #ccc;
 }
 
 .primary-button {
   background: linear-gradient(to right, #FF9F0A, #FFD60A);
   border: none;
-  padding: 0.9rem 2rem;
-  font-size: 1rem;
+  padding: 1.2rem 2.5rem; /* Larger button */
+  font-size: 1.1rem;
   color: #000;
   font-weight: 600;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -93,26 +93,29 @@ header p {
   opacity: 0.9;
 }
 
-/* Main layout */
+/* --- MAIN LAYOUT --- */
 main {
-  max-width: 900px;
+  max-width: 1050px; /* Wider main area */
   margin: auto;
-  padding: 2rem 1rem;
+  padding: 4rem 2rem 4rem 2rem; /* More padding */
 }
 
 .card {
   background: #1a1a1a;
-  border-radius: 12px;
-  padding: 2.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 3.5rem 2.5rem; /* More padding */
+  margin-bottom: 3.5rem; /* More space between cards */
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.04);
 }
 
 /* Typography */
 section h2 {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
   color: #f9f9f9;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
 }
 
 ul {
@@ -121,24 +124,26 @@ ul {
 }
 
 ul li {
-  margin-bottom: 0.75rem;
-  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.15rem;
+  line-height: 2;
 }
 
 blockquote {
   font-style: italic;
   text-align: center;
-  margin: 1.5rem 0;
+  margin: 2.5rem 0;
   color: #bbb;
+  font-size: 1.15rem;
 }
 
-/* Preorder Section */
+/* --- PREORDER SECTION --- */
 #preorder select,
 #preorder button {
   display: block;
-  margin: 1rem auto;
-  padding: 0.75rem;
-  font-size: 1rem;
+  margin: 2rem auto 2.5rem auto;
+  padding: 1rem;
+  font-size: 1.1rem;
 }
 
 #months {
@@ -146,11 +151,11 @@ blockquote {
   background: #111;
   color: #FFD60A;
   font-weight: bold;
-  border: 1px solid #FFD60A;
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  width: 200px;
+  border: 1.5px solid #FFD60A;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  width: 220px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -166,41 +171,45 @@ blockquote {
 #priceDisplay {
   text-align: center;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #FFD60A;
+  margin-bottom: 2rem;
 }
 
-/* Forms */
+/* --- FORMS --- */
 form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem; /* More space between form fields */
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 input,
 textarea {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #555;
-  border-radius: 8px;
+  padding: 1.1rem;
+  font-size: 1.1rem;
+  border: 1.5px solid #555;
+  border-radius: 10px;
   font-family: inherit;
   background: #111;
   color: #eee;
 }
 
-/* Footer */
+/* --- FOOTER --- */
 footer {
   background: #111;
   color: white;
   text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 3rem;
+  padding: 3.5rem 1rem 3.5rem 1rem; /* More vertical padding */
+  margin-top: 5rem;
+  font-size: 1.1rem;
 }
 
 footer a {
   color: #FFD60A;
   text-decoration: none;
-  margin: 0 0.5rem;
+  margin: 0 1.2rem;
 }
 
 /* Fade-in animation */
@@ -272,18 +281,18 @@ nav a.active {
   border-bottom: 2px solid #FFD60A;
 }
 
-/* How It Works bullets */
+/* --- HOW IT WORKS BULLETS --- */
 ol {
-  padding-left: 1.5rem;
+  padding-left: 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  line-height: 1.8;
-  font-size: 1.1rem;
+  gap: 2.5rem;
+  line-height: 2;
+  font-size: 1.15rem;
 }
 
 ol li {
   position: relative;
   padding-left: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.2rem;
 }
