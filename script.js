@@ -129,3 +129,60 @@ function redirectToStripe() {
 }
 
 // (Custom scroll inertia removed; using native browser scrolling)
+
+// Mobile nav: show only one nav link at a time while scrolling
+(function() {
+  function isMobile() {
+    return window.innerWidth <= 700 || /Mobi|Android/i.test(navigator.userAgent);
+  }
+  var navLinks = document.querySelectorAll('.nav-links a');
+  if (!navLinks.length) return;
+  function updateNavOnScroll() {
+    if (!isMobile()) {
+      navLinks.forEach(function(link) { link.style.display = ''; });
+      return;
+    }
+    var scrollY = window.scrollY;
+    var docHeight = document.body.scrollHeight - window.innerHeight;
+    var section = Math.floor((scrollY / docHeight) * navLinks.length);
+    navLinks.forEach(function(link, i) {
+      link.style.display = (i === section) ? 'block' : 'none';
+    });
+  }
+  window.addEventListener('scroll', updateNavOnScroll);
+  window.addEventListener('resize', updateNavOnScroll);
+  document.addEventListener('DOMContentLoaded', updateNavOnScroll);
+})();
+
+// Collapsible FAQ
+(function() {
+  var faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.faq-item');
+      // Close all others
+      document.querySelectorAll('.faq-item').forEach(function(i) {
+        if (i !== item) i.classList.remove('active');
+      });
+      item.classList.toggle('active');
+    });
+  });
+})();
+
+// Dynamically shrink subtitle if about to clip off the screen
+(function() {
+  function shrinkSubtitle() {
+    var desc = document.querySelector('.header-desc');
+    if (!desc) return;
+    desc.style.fontSize = '';
+    let minFont = 0.7;
+    let font = 1.1;
+    desc.style.fontSize = font + 'rem';
+    while (desc.scrollWidth > desc.offsetWidth && font > minFont) {
+      font -= 0.05;
+      desc.style.fontSize = font + 'rem';
+    }
+  }
+  window.addEventListener('resize', shrinkSubtitle);
+  window.addEventListener('DOMContentLoaded', shrinkSubtitle);
+})();
