@@ -9,7 +9,7 @@
 <body>
   <nav>
     <div class="nav-container">
-      <span class="logo-nav">CRDO</span>
+      <div class="logo-nav">CRDO</div>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#features">Features</a>
@@ -21,20 +21,20 @@
   </nav>
 
   <header>
-    <h1>CRDO</h1>
+    <h1 class="logo-gradient">CRDO</h1>
     <p>Discipline built differently. Welcome to CRDO.</p>
     <button id="preorderBtn" class="primary-button">Pre-order Now</button>
   </header>
 
   <main>
-    <section id="about" class="card">
+    <section id="about" class="card fade-in"> <!-- Fade -->
       <h2>About CRDO</h2>
       <p>
         CRDO is a gamified running experience where your daily runs build a personalized digital city. Stay motivated through streaks, city upgrades, and social exploration.
       </p>
     </section>
 
-    <section id="features" class="card">
+    <section id="features" class="card fade-in">
       <h2>Features</h2>
       <ul>
         <li>🏃‍♂️ Daily running fuels your virtual city growth</li>
@@ -43,13 +43,13 @@
       </ul>
     </section>
 
-    <section id="testimonials" class="card">
+    <section id="testimonials" class="card fade-in">
       <h2>What Runners Say</h2>
       <blockquote>“CRDO makes fitness fun again!” – Taylor</blockquote>
       <blockquote>“I never miss a run now. Addicted to leveling up!” – Jordan</blockquote>
     </section>
 
-    <section id="preorder" class="card">
+    <section id="preorder" class="card fade-in">
       <h2>Pre-order CRDO Access</h2>
       <p>Choose how many months you want to pre-order. You can select 1 to 12 months.</p>
 
@@ -73,7 +73,7 @@
       <button class="primary-button" onclick="redirectToStripe()">Pre-order Now</button>
     </section>
 
-    <section id="contact" class="card">
+    <section id="contact" class="card fade-in">
       <h2>Contact Us</h2>
       <form action="https://formspree.io/f/manbekdy" method="POST">
         <input type="email" name="email" placeholder="Your email" required />
