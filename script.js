@@ -35,9 +35,8 @@ monthSelect.addEventListener("change", function () {
     const current = start + (end - start) * progress;
     priceDisplay.textContent = `Total: $${current.toFixed(2)}`;
     if (progress < 1) requestAnimationFrame(animatePrice);
-}
-requestAnimationFrame(animatePrice);
-
+  }
+  requestAnimationFrame(animatePrice);
 });
 
 // Smooth scroll for nav links
@@ -86,11 +85,6 @@ sections.forEach(section => sectionObserver.observe(section));
 // Privacy Policy Modal
 const modal = document.getElementById("privacyModal");
 const privacyLink = document.getElementById("privacyLink");
-privacyLink.addEventListener("click", e => {
-  e.preventDefault();
-  modal.style.display = "block";
-});
-
 const closeBtn = document.querySelector(".modal .close");
 
 privacyLink.addEventListener("click", e => {
@@ -106,5 +100,30 @@ window.addEventListener("click", e => {
   if (e.target === modal) {
     modal.style.display = "none";
   }
-
 });
+
+// Stripe payment redirect
+const priceLinks = {
+  1: "https://buy.stripe.com/7sI7t0ekM3dEcD6dR2", 
+  2: "https://buy.stripe.com/14kcOhekw5bM9hS28e", 
+  3: "https://buy.stripe.com/14k6ohekw7rAdhS14b", 
+  4: "https://buy.stripe.com/28obI3g6k6lS4Ji5km", 
+  5: "https://buy.stripe.com/00gcOhekw3dE3mAeUV", 
+  6: "https://buy.stripe.com/00g8zJg6kbLY7kA9AE", 
+  7: "https://buy.stripe.com/eVa7t0ekMbLY2RG3cd", 
+  8: "https://buy.stripe.com/dR65nZ4vY5bM3mAeV8", 
+  9: "https://buy.stripe.com/eVa16D7cEcWQcD6cMO", 
+  10: "https://buy.stripe.com/28odT08owd1IdhS3ce", 
+  11: "https://buy.stripe.com/00gbI3g6k1KO7kAbMP", 
+  12: "https://buy.stripe.com/4gw6ohekM1KOfxC4gk"
+};
+
+function redirectToStripe() {
+  const months = parseInt(document.getElementById("months").value, 10);
+  const url = priceLinks[months];
+  if (!url) {
+    alert("Payment link for this selection is not configured yet.");
+    return;
+  }
+  window.location.href = url;
+}
