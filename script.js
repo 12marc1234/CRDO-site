@@ -38,12 +38,12 @@ document.querySelectorAll("nav a").forEach(link => {
   });
 });
 
-// Intersection Observer for fade-in
-const observer = new IntersectionObserver(entries => {
+// Intersection Observer for fade-in animation
+const fadeObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
+      fadeObserver.unobserve(entry.target);
     }
   });
 }, {
@@ -51,5 +51,22 @@ const observer = new IntersectionObserver(entries => {
 });
 
 document.querySelectorAll(".fade-in").forEach(el => {
-  observer.observe(el);
+  fadeObserver.observe(el);
 });
+
+// Active nav link highlight on scroll
+const sections = document.querySelectorAll("main section[id]");
+const navLinks = document.querySelectorAll("nav a");
+
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        const match = link.getAttribute("href").substring(1) === entry.target.id;
+        link.classList.toggle("active", match);
+      });
+    }
+  });
+}, { threshold: 0.6 });
+
+sections.forEach(section => sectionObserver.observe(section));
