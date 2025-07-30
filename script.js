@@ -104,18 +104,18 @@ window.addEventListener("click", e => {
 
 // Stripe payment redirect
 const priceLinks = {
-  1: "https://buy.stripe.com/test_dRmaEWeztaPLdtG4xr3VC00", 
-  2: "https://buy.stripe.com/test_aFaeVc4YT3nj9dqfc53VC02", 
-  3: "https://buy.stripe.com/test_3cI6oG0ID2jfahu3tn3VC03", 
-  4: "https://buy.stripe.com/test_6oU5kC1MH9LH61e3tn3VC04", 
-  5: "https://buy.stripe.com/test_eVq6oG0ID9LH61e6Fz3VC05", 
-  6: "https://buy.stripe.com/test_dRmaEW2QLaPL61ebZT3VC06", 
-  7: "https://buy.stripe.com/test_dRm9AS1MHbTPbly1lf3VC07", 
-  8: "https://buy.stripe.com/test_3cIfZg3UPcXT61e3tn3VC08", 
-  9: "https://buy.stripe.com/test_9B628q8b50b72P2gg93VC09", 
-  10: "https://buy.stripe.com/test_8x29ASgHBaPLdtGbZT3VC0a", 
-  11: "https://buy.stripe.com/test_6oUcN4bnhaPLgFSd3X3VC0b", 
-  12: "https://buy.stripe.com/test_9B6aEWajd8HD89m1lf3VC0c"
+  1: "https://buy.stripe.com/8x24gycr27vP9FLb4T5wI0b", 
+  2: "https://buy.stripe.com/eVqaEWgHicQ98BHeh55wI0a", 
+  3: "https://buy.stripe.com/14A5kC0IkeYh3hn6OD5wI09", 
+  4: "https://buy.stripe.com/cNibJ00IkeYh2djfl95wI08", 
+  5: "https://buy.stripe.com/fZu14m4YA4jD3hna0P5wI07", 
+  6: "https://buy.stripe.com/28E28q76IeYh4lrgpd5wI06", 
+  7: "https://buy.stripe.com/eVqdR8bmY6rL3hna0P5wI05", 
+  8: "https://buy.stripe.com/6oUfZg1MoeYh6tzc8X5wI04", 
+  9: "https://buy.stripe.com/dRm14maiU3fz4lrc8X5wI03", 
+  10: "https://buy.stripe.com/aFa3cu1MoaI18BH1uj5wI02", 
+  11: "https://buy.stripe.com/9B6cN41Mo6rL3hna0P5wI01", 
+  12: "https://buy.stripe.com/bJeeVc76I9DX6tz8WL5wI00"
 };
 
 function redirectToStripe() {
@@ -127,62 +127,3 @@ function redirectToStripe() {
   }
   window.location.href = url;
 }
-
-// (Custom scroll inertia removed; using native browser scrolling)
-
-// Mobile nav: show only one nav link at a time while scrolling
-(function() {
-  function isMobile() {
-    return window.innerWidth <= 700 || /Mobi|Android/i.test(navigator.userAgent);
-  }
-  var navLinks = document.querySelectorAll('.nav-links a');
-  if (!navLinks.length) return;
-  function updateNavOnScroll() {
-    if (!isMobile()) {
-      navLinks.forEach(function(link) { link.style.display = ''; });
-      return;
-    }
-    var scrollY = window.scrollY;
-    var docHeight = document.body.scrollHeight - window.innerHeight;
-    var section = Math.floor((scrollY / docHeight) * navLinks.length);
-    navLinks.forEach(function(link, i) {
-      link.style.display = (i === section) ? 'block' : 'none';
-    });
-  }
-  window.addEventListener('scroll', updateNavOnScroll);
-  window.addEventListener('resize', updateNavOnScroll);
-  document.addEventListener('DOMContentLoaded', updateNavOnScroll);
-})();
-
-// Collapsible FAQ
-(function() {
-  var faqQuestions = document.querySelectorAll('.faq-question');
-  faqQuestions.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var item = btn.closest('.faq-item');
-      // Close all others
-      document.querySelectorAll('.faq-item').forEach(function(i) {
-        if (i !== item) i.classList.remove('active');
-      });
-      item.classList.toggle('active');
-    });
-  });
-})();
-
-// Dynamically shrink subtitle if about to clip off the screen
-(function() {
-  function shrinkSubtitle() {
-    var desc = document.querySelector('.header-desc');
-    if (!desc) return;
-    desc.style.fontSize = '';
-    let minFont = 0.7;
-    let font = 1.1;
-    desc.style.fontSize = font + 'rem';
-    while (desc.scrollWidth > desc.offsetWidth && font > minFont) {
-      font -= 0.05;
-      desc.style.fontSize = font + 'rem';
-    }
-  }
-  window.addEventListener('resize', shrinkSubtitle);
-  window.addEventListener('DOMContentLoaded', shrinkSubtitle);
-})();
