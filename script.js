@@ -1,5 +1,11 @@
-// Smooth scroll to preorder button
+// Pre-order button in header - check if plan is selected
 document.getElementById("preorderBtn").addEventListener("click", () => {
+  const selectedPlan = document.querySelector('.preorder-option.selected');
+  if (!selectedPlan) {
+    alert("Please select a plan first, then click Pre-order Now.");
+    return;
+  }
+  // If plan is selected, proceed to pre-order section
   document.getElementById("preorder").scrollIntoView({ behavior: "smooth" });
 });
 
@@ -123,9 +129,9 @@ window.addEventListener("click", e => {
 
 // Stripe payment redirect
 const priceLinks = {
-  3: "https://buy.stripe.com/14A5kC0IkeYh3hn6OD5wI09", 
-  6: "https://buy.stripe.com/28E28q76IeYh4lrgpd5wI06", 
-  12: "https://buy.stripe.com/bJeeVc76I9DX6tz8WL5wI00"
+  3: "https://buy.stripe.com/00wcN49eQ5nH6tz6OD5wI0c", 
+  6: "https://buy.stripe.com/28EcN4fDe3fz19fc8X5wI0d", 
+  12: "https://buy.stripe.com/cNi3cu1MobM57xD0qf5wI0e"
 };
 
 function redirectToStripe() {
