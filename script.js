@@ -3,40 +3,41 @@ document.getElementById("preorderBtn").addEventListener("click", () => {
   document.getElementById("preorder").scrollIntoView({ behavior: "smooth" });
 });
 
-// Pricing logic
-const pricing = {
-  1: 5.00,
-  2: 9.50,
-  3: 13.50,
-  4: 17.60,
-  5: 21.50,
-  6: 25.20,
-  7: 28.70,
-  8: 32.00,
-  9: 35.10,
-  10: 38.00,
-  11: 40.70,
-  12: 42.00
-};
-
-const monthSelect = document.getElementById("months");
+// Preorder button selection logic
+const preorderOptions = document.querySelectorAll('.preorder-option');
 const priceDisplay = document.getElementById("priceDisplay");
+const preorderButton = document.getElementById("preorderButton");
+let selectedMonths = null;
 
-monthSelect.addEventListener("change", function () {
-  const months = parseInt(this.value);
-  const price = pricing[months];
-  const prev = parseFloat(priceDisplay.textContent.replace(/[^0-9.]/g, "")) || 0;
-  let start = prev, end = price, duration = 300;
-  let startTime = null;
+preorderOptions.forEach(option => {
+  option.addEventListener('click', function() {
+    // Remove selected class from all options
+    preorderOptions.forEach(opt => opt.classList.remove('selected'));
+    
+    // Add selected class to clicked option
+    this.classList.add('selected');
+    
+    // Get the selected data
+    selectedMonths = parseInt(this.getAttribute('data-months'));
+    const selectedPrice = parseFloat(this.getAttribute('data-price'));
+    
+    // Update price display with animation
+    const prev = parseFloat(priceDisplay.textContent.replace(/[^0-9.]/g, "")) || 0;
+    let start = prev, end = selectedPrice, duration = 300;
+    let startTime = null;
 
-  function animatePrice(time) {
-    if (!startTime) startTime = time;
-    const progress = Math.min((time - startTime) / duration, 1);
-    const current = start + (end - start) * progress;
-    priceDisplay.textContent = `Total: $${current.toFixed(2)}`;
-    if (progress < 1) requestAnimationFrame(animatePrice);
-  }
-  requestAnimationFrame(animatePrice);
+    function animatePrice(time) {
+      if (!startTime) startTime = time;
+      const progress = Math.min((time - startTime) / duration, 1);
+      const current = start + (end - start) * progress;
+      priceDisplay.textContent = `Total: $${current.toFixed(2)}`;
+      if (progress < 1) requestAnimationFrame(animatePrice);
+    }
+    requestAnimationFrame(animatePrice);
+    
+    // Enable the preorder button
+    preorderButton.disabled = false;
+  });
 });
 
 // Smooth scroll for nav links
@@ -82,6 +83,24 @@ const sectionObserver = new IntersectionObserver(entries => {
 
 sections.forEach(section => sectionObserver.observe(section));
 
+// FAQ Accordion functionality
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', function() {
+    const faqItem = this.parentElement;
+    const answer = this.nextElementSibling;
+    
+    // Close all other FAQ items
+    document.querySelectorAll('.faq-item').forEach(item => {
+      if (item !== faqItem) {
+        item.classList.remove('active');
+      }
+    });
+    
+    // Toggle current FAQ item
+    faqItem.classList.toggle('active');
+  });
+});
+
 // Privacy Policy Modal
 const modal = document.getElementById("privacyModal");
 const privacyLink = document.getElementById("privacyLink");
@@ -104,23 +123,18 @@ window.addEventListener("click", e => {
 
 // Stripe payment redirect
 const priceLinks = {
-  1: "https://buy.stripe.com/8x24gycr27vP9FLb4T5wI0b", 
-  2: "https://buy.stripe.com/eVqaEWgHicQ98BHeh55wI0a", 
   3: "https://buy.stripe.com/14A5kC0IkeYh3hn6OD5wI09", 
-  4: "https://buy.stripe.com/cNibJ00IkeYh2djfl95wI08", 
-  5: "https://buy.stripe.com/fZu14m4YA4jD3hna0P5wI07", 
   6: "https://buy.stripe.com/28E28q76IeYh4lrgpd5wI06", 
-  7: "https://buy.stripe.com/eVqdR8bmY6rL3hna0P5wI05", 
-  8: "https://buy.stripe.com/6oUfZg1MoeYh6tzc8X5wI04", 
-  9: "https://buy.stripe.com/dRm14maiU3fz4lrc8X5wI03", 
-  10: "https://buy.stripe.com/aFa3cu1MoaI18BH1uj5wI02", 
-  11: "https://buy.stripe.com/9B6cN41Mo6rL3hna0P5wI01", 
   12: "https://buy.stripe.com/bJeeVc76I9DX6tz8WL5wI00"
 };
 
 function redirectToStripe() {
-  const months = parseInt(document.getElementById("months").value, 10);
-  const url = priceLinks[months];
+  if (!selectedMonths) {
+    alert("Please select a plan first.");
+    return;
+  }
+  
+  const url = priceLinks[selectedMonths];
   if (!url) {
     alert("Payment link for this selection is not configured yet.");
     return;
