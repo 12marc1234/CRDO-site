@@ -70,26 +70,25 @@
 
     <section id="preorder" class="card fade-in">
       <h2>Pre-order CRDO Access</h2>
-      <p>Choose how many months you want to pre-order. You can select 1 to 12 months.</p>
+      <p>Choose your pre-order plan:</p>
 
-      <label for="months">Months:</label>
-      <select id="months">
-        <option value="1">1 Month</option>
-        <option value="2">2 Months</option>
-        <option value="3">3 Months</option>
-        <option value="4">4 Months</option>
-        <option value="5">5 Months</option>
-        <option value="6">6 Months</option>
-        <option value="7">7 Months</option>
-        <option value="8">8 Months</option>
-        <option value="9">9 Months</option>
-        <option value="10">10 Months</option>
-        <option value="11">11 Months</option>
-        <option value="12">12 Months</option>
-      </select>
+      <div class="preorder-buttons">
+        <button class="preorder-option" data-months="3" data-price="15">
+          <span class="option-title">3 Months</span>
+          <span class="option-price">$15</span>
+        </button>
+        <button class="preorder-option" data-months="6" data-price="27">
+          <span class="option-title">6 Months</span>
+          <span class="option-price">$27</span>
+        </button>
+        <button class="preorder-option" data-months="12" data-price="45">
+          <span class="option-title">12 Months</span>
+          <span class="option-price">$45</span>
+        </button>
+      </div>
 
-      <p id="priceDisplay">Total: $5.00</p>
-      <button class="primary-button" onclick="redirectToStripe()">Pre-order Now</button>
+      <p id="priceDisplay">Select a plan above</p>
+      <button id="preorderButton" class="primary-button" onclick="redirectToStripe()" disabled>Pre-order Now</button>
     </section>
 
     <section id="faq" class="card fade-in">
